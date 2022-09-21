@@ -1,0 +1,11 @@
+-------------------------------------------------------------------------------
+Test set: com.example.school.controller.SchoolTestControllerTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.031 s <<< FAILURE! - in com.example.school.controller.SchoolTestControllerTest
+shouldAddTestToDatabase  Time elapsed: 0.024 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <200> but was <500>.
+
+	at com.example.school.controller.SchoolTestControllerTest.shouldAddTestToDatabase(SchoolTestControllerTest.java:46)
+

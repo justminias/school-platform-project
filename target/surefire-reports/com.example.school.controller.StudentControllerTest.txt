@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.example.school.controller.StudentControllerTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.009 s <<< FAILURE! - in com.example.school.controller.StudentControllerTest
+shouldAddStudentToDatabase  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "com.example.school.entity.SchoolClassEntity.getSchoolGradeLevel()" because the return value of "com.example.school.entity.StudentEntity.getSchoolClassEntity()" is null
+	at com.example.school.controller.StudentControllerTest.shouldAddStudentToDatabase(StudentControllerTest.java:46)
+

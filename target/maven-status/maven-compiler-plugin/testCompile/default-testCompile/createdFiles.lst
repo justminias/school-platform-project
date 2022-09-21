@@ -1,0 +1,8 @@
+com/example/school/controller/SchoolClassControllerTest.class
+com/example/school/controller/TeacherControllerTest.class
+com/example/school/SchoolProjectIntegrationTest.class
+com/example/school/controller/TestCleaner.class
+com/example/school/controller/SchoolTestControllerTest.class
+com/example/school/controller/StudentControllerTest.class
+com/example/school/controller/TestResultControllerTest.class
+com/example/school/controller/TestResultControllerTestInitializer.class
