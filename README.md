@@ -1,1 +1,1 @@
-# school-project
+# school-platform-project
