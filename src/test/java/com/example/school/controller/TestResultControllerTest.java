@@ -37,13 +37,16 @@ public class TestResultControllerTest {
     }
 
     @AfterEach
-    public void cleanUp() {
+    public void tearDown() {
         testCleaner.cleanAllRepositories();
     }
 
     @Test
     public void shouldAddTestResult() {
-        //given when
+        //given
+        testResultControllerTestInitializer.shouldAddTestResultInitializeData();
+
+        // when
         RestAssured
                 .given()
                 .contentType(ContentType.JSON)

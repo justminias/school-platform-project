@@ -1,17 +1,11 @@
 package com.example.school.controller;
 
-import com.example.school.dto.SchoolTestDto;
-import com.example.school.dto.StudentDto;
-import com.example.school.dto.TeacherDto;
-import com.example.school.dto.TestResultDto;
+import com.example.school.dto.*;
 import com.example.school.entity.Grade;
 import com.example.school.entity.SchoolGradeLevel;
 import com.example.school.entity.Subject;
 import com.example.school.entity.TeacherProfile;
-import com.example.school.service.SchoolTestService;
-import com.example.school.service.StudentService;
-import com.example.school.service.TeacherService;
-import com.example.school.service.TestResultService;
+import com.example.school.service.*;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -34,6 +28,43 @@ public class TestResultControllerTestInitializer {
 
     @Autowired
     TeacherService teacherService;
+
+    @Autowired
+    SchoolClassService schoolClassService;
+
+    void shouldAddTestResultInitializeData() {
+        TeacherDto teacherDto = TeacherDto.builder()
+                .id("1")
+                .name("Name1")
+                .surname("Surname1")
+                .teacherProfile(TeacherProfile.SUBJECT_TEACHER)
+                .classId(null)
+                .subjects(List.of(Subject.FRENCH))
+                .build();
+        teacherService.addTeacher(teacherDto);
+
+        SchoolTestDto schoolTestDto = SchoolTestDto.builder()
+                .id("1")
+                .date(LocalDate.of(2020, 12, 12))
+                .teacherId("1")
+                .subject(Subject.FRENCH)
+                .build();
+        schoolTestService.addSchoolTest(schoolTestDto);
+
+        SchoolClassDto schoolClassdto = SchoolClassDto.builder()
+                .id("1")
+                .schoolGradeLevel(SchoolGradeLevel.SENIOR)
+                .build();
+        schoolClassService.addSchoolClass(schoolClassdto);
+
+        StudentDto studentDto = StudentDto.builder()
+                .id("1")
+                .name("Name1")
+                .surname("Surname1")
+                .schoolGradeLevel(SchoolGradeLevel.SENIOR)
+                .build();
+        studentService.addStudent(studentDto);
+    }
 
     void shouldReturnTestResultByTestResultRequestInitializeData() {
         TeacherDto teacherDto = TeacherDto.builder()

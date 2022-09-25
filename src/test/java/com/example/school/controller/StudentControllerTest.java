@@ -1,8 +1,10 @@
 package com.example.school.controller;
 
 import com.example.school.SchoolProjectIntegrationTest;
+import com.example.school.dto.SchoolClassDto;
 import com.example.school.dto.StudentDto;
 import com.example.school.entity.SchoolGradeLevel;
+import com.example.school.service.SchoolClassService;
 import com.example.school.service.StudentService;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
@@ -18,6 +20,9 @@ public class StudentControllerTest {
     @Autowired
     StudentService studentService;
 
+    @Autowired
+    SchoolClassService schoolClassService;
+
     @LocalServerPort
     private int port;
 
@@ -28,7 +33,14 @@ public class StudentControllerTest {
 
     @Test
     public void shouldAddStudentToDatabase() {
-        //given when
+        //given
+        SchoolClassDto schoolClassdto = SchoolClassDto.builder()
+                .id("1")
+                .schoolGradeLevel(SchoolGradeLevel.SENIOR)
+                .build();
+        schoolClassService.addSchoolClass(schoolClassdto);
+
+        // when
         RestAssured.given()
                 .contentType(ContentType.JSON)
                 .body(StudentDto.builder()
